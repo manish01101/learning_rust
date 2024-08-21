@@ -108,7 +108,7 @@ fn main() {
         }
         cnt += 1;
     }
-    println!("end count = {cnt}");
+    println!("end count = {cnt}\n");
 
     /* CONDITIONAL LOOP WITH WHILE */
     let mut n = 3;
