@@ -17,6 +17,7 @@ fn main() {
 
         // Shadowing lets us reuse the guess variable name rather than forcing us to create two unique variables
         // let guess: u32 = guess.trim().parse().expect("please type a number!");
+
         // handling invalid i/p
         //“parse returns a Result type and Result is an enum that has the variants Ok and Err”
         let guess: u32 = match guess.trim().parse() {
@@ -28,7 +29,7 @@ fn main() {
         match guess.cmp(&secret_num) {
             Ordering::Less => println!("Too small!"),
             Ordering::Greater => println!("Too big!"),
-             Ordering::Equal => {
+            Ordering::Equal => {
                 println!("You win!");
                 break;
             }
