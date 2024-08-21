@@ -1,5 +1,4 @@
 
-
-fn main () {
-    println!("main fn")
+fn main() {
+    
 }
