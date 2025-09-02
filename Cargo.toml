@@ -4,5 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+cargo-expand = "1.0.114"
 chrono = "0.4.38"
 rand = "0.8.5"

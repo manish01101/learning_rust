@@ -1,0 +1,126 @@
+Cargo is Rust’s build system and package manager.
+Rustfmt ensures a consistent coding style across developers.
+curl https://sh.rustup.rs -sSf | sh => to install rust 
+rustup doc to open doc in localhost
+Rust is an ahead-of-time compiled language, meaning you can compile a program and give the executable to someone else, and they can run it even without having Rust installed
+In Rust, packages of code are referred to as crates. 
+=> cargo new <packageName>
+cargo.toml -> like package.json in nodejs
+cargo build-> This command creates an executable file in target/debug/hello_cargo or target\debug\hello_cargo.exe on Windows
+cargo run-> to compile the code and then run the resulting executable all in one command
+cargo check-> This command quickly checks your code to make sure it compiles but doesn’t produce an executable
+cargo build --release => to compile it with optimizations
+Cargo.lock. This file keeps track of the exact versions of dependencies in your project
+cargo new project_name --bin -> setup new project
+VARIABLE
+cargo update -> update version of dependencies
+->by default immutable
+for mutable: let mut num: i32 = 123434;
+
+way of printing
+    println!("{}", a);
+    println!("{a}");
+
+
+
+Shadowing lets us reuse the guess variable name rather than forcing us to create two unique variables
+match {
+
+}
+
+data type:
+scalar:
+    integer
+    floating point
+    boolean
+    char
+compound:
+    tuple: “let tup: (i32, f64, u8) = (500, 6.4, 1);”
+    arrays: “let a: [i32; 5] = [1, 2, 3, 4, 5];” //[datatype, size]
+            “let a = [3; 5];” => [3, 3, 3, 3, 3] // [default val, size]
+
+“Statements: are instructions that perform some action and do not return a value.
+Expressions: evaluate to a resultant value.”
+
+
+// IF EXPRESSION
+    let num = 3;
+    if num < 5 {
+        println!("condition is passed");
+    } else if num == 5 {
+        println!("condition is accurate");
+    } else {
+        println!("not passed");
+    }
+
+    let condition = true;
+    let n = if condition { 5 } else { 6 };
+    println!("n is {n}");
+
+LOOP
+loop {
+
+}
+let mut cnt = 0;
+// loop label must begin with single quote
+'counting_up: loop {
+    println!("count = {cnt}");
+    let mut remaining = 10;
+    
+    loop {
+        println!("remaining = {remaining}");
+        if remaining == 9 {
+            break;
+        }
+        if cnt == 2 {
+            break 'counting_up;
+        }
+        remaining -= 1;
+    }
+    cnt += 1;
+}
+// CONDITIONAL LOOP WITH WHILE
+    let mut n = 3;
+    while n != 0 {
+        println!("{n}");
+        n -= 1;
+    }
+// FOR LOOP
+let a = [10, 20, 30, 40, 50];
+for element in a {
+    println!("the value is: {element}");
+}
+
+for number in (1..4).rev() {
+    println!("{number}!");
+}
+// references and mutable references
+fn main() {
+    let mut s = String::from("hello");
+    change(&mut s);
+}
+fn change(some_string: &mut String) {
+    some_string.push_str(", world");
+}
+
+one variable can not have more than one mutable references at a time
+
+Dangling References “dangling pointer—a pointer that references a location in memory that may have been given to someone else—by freeing some memory while preserving a pointer to that memory.”
+fn dangle() -> &String {
+    let s = String::from("hello");
+    &s
+}
+
+
+// SLICE TYPE
+fn first_word(s: &String) -> usize { // return a byte index val
+    let bytes = s.as_bytes(); // convert string to an arr of bytes 
+    for(i, &item) in bytes.iter().enumerate() { // iter creates an iterator over the arr of bytes
+        if item == b' ' { // byte literal
+            return i;
+        }
+    }
+    s.len()
+}
+“iter is a method that returns each element in a collection and that enumerate wraps the result of iter and returns each element as part of a tuple instead. The first element of the tuple returned from enumerate is the index, and the second element is a reference to the element.”
+
