@@ -1,0 +1,8 @@
+[package]
+name = "rust_adv"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+threadpool = "1.8"
+criterion = "0.4"  # For benchmarking

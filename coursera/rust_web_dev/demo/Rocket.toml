@@ -1,0 +1,12 @@
+[development]
+address = "127.0.0.2"
+port = "3000"
+log = "debug"
+
+[production]
+address = "0.0.0.0"
+port = "80"
+log = "normal"
+
+[default.databases.my_db]
+url = "postgresql://postgres:mysecretpassword@localhost:5432/"
